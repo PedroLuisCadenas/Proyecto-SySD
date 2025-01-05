@@ -4,28 +4,19 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.util.HashSet;
+import java.util.*; 
 
 public class RMICliente {
 
     public static void main(String[] args) throws RemoteException, MalformedURLException, NotBoundException, IOException {
 		
 		RMI x = (RMI)Naming.lookup("rmi://localhost:1099/RMI");
-		
-
-        // PRUEBA PARA LISTAR ARCHIVOS
-
-		HashSet<String> archivos = x.listaRemota();
-        System.out.println("Archivos en la carpeta remota:");
-        for (String archivo : archivos) {
-            System.out.println(archivo);
-        }
 
 
         // PRUEBA PARA CREAR CARPETA
 
         // Crear una nueva carpeta en el servidor
-        // String nombreCarpeta = "./carpetaRemota/nuevaCarpeta1";
+        // String nombreCarpeta = "./carpetaRemota/nuevaCarpeta3";
         // boolean creada = x.crearCarpeta(nombreCarpeta);
         // if (creada) {
         //     System.out.println("Carpeta creada exitosamente: " + nombreCarpeta);
@@ -37,7 +28,7 @@ public class RMICliente {
         // PRUEBA PARA BORRAR CARPETA VACÍA
 
         //eliminar carpeta vacía
-        // boolean borrada = x.borrarCarpeta("nuevaCarpeta5");
+        // boolean borrada = x.borrarCarpeta("nuevaCarpeta1");
         // if (borrada) {
         //     System.out.println("Carpeta borrada exitosamente: " + "nuevaCarpeta1");
         // } else {
@@ -48,7 +39,7 @@ public class RMICliente {
         // PRUEBA PARA BORRAR CARPETA CON ARCHIVOS
 
         //Eliminar una carpeta en el servidor
-        // String nombreCarpeta = "./carpetaRemota";
+        // String nombreCarpeta = "./carpetaRemota/nuevaCarpeta3";
 
         // // Intentar eliminar la carpeta en el servidor
         // try {
@@ -65,7 +56,7 @@ public class RMICliente {
 
         // PRUEBA PARA SUBIR ARCHIVO
 
-        // // Leer un archivo local y subirlo al servidor
+        // Leer un archivo local y subirlo al servidor
         // String rutaArchivoLocal = "C:\\Users\\Pedro Luis\\Desktop\\PruebaProyecto.txt";
         // File archivoLocal = new File(rutaArchivoLocal);
         // byte[] datosArchivo = new byte[(int) archivoLocal.length()];
@@ -172,5 +163,14 @@ public class RMICliente {
         //     System.err.println("Error al descargar la carpeta: " + e.getMessage());
         // }
 
+
+        
+        // PRUEBA PARA LISTAR ARCHIVOS
+
+		HashSet<String> archivos = x.listaRemota();
+        System.out.println("Archivos en la carpeta remota:");
+        for (String archivo : archivos) {
+            System.out.println(archivo);
+        }
     }
 }
