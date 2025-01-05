@@ -7,12 +7,12 @@ public class RMIServer {
 
 	public static void main(String[] args) throws RemoteException, IOException {
 		
-		//Start the RMI registry
-		LocateRegistry.createRegistry(1099); //Default port
+		// Inicio del registro RMI
+		LocateRegistry.createRegistry(1099); // Puerto default
 		
 		
 		RMIImplementacion pt = new RMIImplementacion();
-		//Register the remote object
+		// Registrar el objeto remoto
 		Registry registry = LocateRegistry.getRegistry();
 		registry.rebind("RMI", pt);
 		System.out.println("Servidor listo");
